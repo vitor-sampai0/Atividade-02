@@ -122,5 +122,41 @@ suspeitosRoutes.put("/:id", (req, res) => {
         })
     }
 
+    const { nome, profissao, envolvimentoApostas, nivelSuspeita } = req.body;
 
+    if (!nome) {
+        return res.status(400).send({
+            message: " nome do Suspeito por favor",
+        })
+    }
+
+    if (!profissao) {
+        return res.status(400).send({
+            message: " profissao do Suspeito por favor",
+        })
+    }
+
+    if (!envolvimentoApostas) {
+        return res.status(400).send({
+            message: "tem envolvimento em aposta?",
+        })
+    }
+
+    if (!nivelSuspeita) {
+        return res.status(400).send({
+            message: " nivel do Suspeito por favor",
+        })
+    }
+
+
+    suspeito.nome = nome;
+    suspeito.profissao = profissao;
+    suspeito.envolvimentoApostas = envolvimentoApostas;
+    suspeito.nivelSuspeita = nivelSuspeita;
+
+    return res.status(200).send({
+        message: "suspeito/a atualizado/a",
+        suspeito,
+    })
+});
 export default suspeitosRoutes;
