@@ -9,6 +9,6 @@ routes.get("/", (req, res) => {
   return res.status(200).json({ message: "Vai Corinthians!" });
 });
 
-routes.use("/suspeitos", suspeitosRoutes)
+routes.use("/suspeitos", suspeitosRoutes) 
 
 export default routes;

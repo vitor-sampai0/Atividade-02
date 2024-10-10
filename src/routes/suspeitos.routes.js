@@ -6,28 +6,23 @@ const suspeitosRoutes = Router();
 
 let suspeitos = [
     {
-        id: 1,
+        id: Math.floor(Math.random() * 1000),
         nome: "João",
-        profissão: "Programador",
+        profissao: "Programador",
         envolvimentoApostas: "sim",
         nivelSuspeita: "Médio",
     },
     {
-        id: 2,
+        id: Math.floor(Math.random() * 1000),
         nome: "vitor",
-        profissão: "Adiministrador",
+        profissao: "Adiministrador",
         envolvimentoApostas: "não",
         nivelSuspeita: "Baixo",
     },
     {
-        id: 3,
+        id: Math.floor(Math.random() * 1000),
         nome: "Felipe",
-        profissão: [
-            "Programador",
-            "Professor",
-            "Tecnico",
-            "gogo😗"
-        ],
+        profissao: "gogo😗",
         envolvimentoApostas: "sim",
         nivelSuspeita: "Alto",
     },
@@ -37,6 +32,21 @@ let suspeitos = [
 suspeitosRoutes.get("/", (req, res) => {
     return res.status(200).send(suspeitos);
 });
+//rota para achar o suspeito pelo id
+suspeitosRoutes.get("/:id", (req, res) => {
+    const { id } = req.params;
 
-suspeitosRoutes.get("/:id", )
+    const suspeito = suspeitos.find((suspect) => suspect.id == id)
+
+    if (!suspeito) {
+        return res.status(404).send({
+            message: "Suspeito não encontrado"
+        })
+    }
+
+    return res.status(200).send({
+        message: "Suspeito encontrado", suspeito,
+    })
+})
+
 export default suspeitosRoutes;
