@@ -48,5 +48,46 @@ suspeitosRoutes.get("/:id", (req, res) => {
         message: "Suspeito encontrado", suspeito,
     })
 })
+// Rota para criar um suspeito
+suspeitosRoutes.post("/", (req, res) => {
+
+    const {
+        nome,
+        profissao,
+        envolvimentoApostas,
+        nivelSuspeita
+    } = req.body;
+
+    //validação de nome
+    if (!nome) {
+        return res.status(400).send({ message: "Coloque um nome para o suspeito" })
+    }
+
+    //validaçao da profissão
+    if (!profissao) {
+        return res.status(400).send({ message: "Coloque uma profissão" })
+    }
+
+    //validação de envolvimento de aposta
+    if (envolvimentoApostas == "") {
+        return res.status(400).send({ message: "preencha o campo" })
+    }
+    // validação de nivel de suspeita
+    if (nivelSuspeita == "") {
+        return res.status(400).send({ message: "Coloque o nivel de suspeita" })
+    }
+
+
+    const novoSuspeito = {
+        id: Math.floor(Math.random() * 1000),
+        nome,
+        profissao,
+        envolvimentoApostas,
+        nivelSuspeita
+    }
+    suspeitos.push(novoSuspeito)
+    return res.status(201).send("Suspeito criado com sucesso")
+});
+
 
 export default suspeitosRoutes;
