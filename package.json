@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Aqui irei fazer uma atividade sobre bets",
   "main": "index.js",
+"type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dev": "nodemon src/server.js"
   },
   "keywords": [
     "Node.JS",
@@ -13,5 +14,10 @@
     "github"
   ],
   "author": "Vitor Sampaio Fernandes de Lira",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
 }
