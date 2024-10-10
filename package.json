@@ -1,0 +1,17 @@
+{
+  "name": "atividade-02",
+  "version": "1.0.0",
+  "description": "Aqui irei fazer uma atividade sobre bets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.JS",
+    "atividade-02",
+    "JavaScript",
+    "github"
+  ],
+  "author": "Vitor Sampaio Fernandes de Lira",
+  "license": "MIT"
+}
